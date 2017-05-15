@@ -1,0 +1,21 @@
+  <div class="container center-block text-align-center">
+    <h1 style="color: hotpink"><em>Todo Application</em></h1>
+        <input type="text"
+               class="form-control"
+               placeholder="New Todo"
+               [(ngModel)]="todoItem"
+               (keypress)="addTodoItems($event)"/>
+        <ul class="remove-bullets margin-top-large">
+          <li *ngFor="let todoTask of todoTasks">
+              <input type="checkbox"
+                     class="blankCheckbox"
+                     style="float: left"
+                     (click)="onSelect($event, todoTask.todoTask)"/>
+              <span id="todoSpan">{{ todoTask.todoTask }}</span>
+              <button class="glyphicon glyphicon-remove"
+                      style="float: right"
+                      (click)="removeTask(todoTask.todoTask)"></button>
+          </li>
+        </ul>
+      <span style="color:#2aabd2"><strong><i>{{ remainingTodos }} left to do</i></strong></span>
+  </div>
